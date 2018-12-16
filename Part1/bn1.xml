@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>Email Received</NAME>
+	<OUTCOME>Business</OUTCOME>
+	<OUTCOME>Personal</OUTCOME>
+	<PROPERTY>position = (7401.0, 5068.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Phishing Attack</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7471.0, 5299.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Mallicious Content</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7423.0, 5202.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Maintenance</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (8029.0, 5083.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Firewall</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7933.0, 5200.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Out of Date</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (8128.0, 5204.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Holiday</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7729.0, 5060.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Alert</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7650.0, 5311.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>DDoS</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7736.0, 5221.0)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>Email Received</FOR>
+	<TABLE>0.75 0.25</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Phishing Attack</FOR>
+	<GIVEN>Mallicious Content</GIVEN>
+	<TABLE>0.97 0.03 0.03 0.97</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Mallicious Content</FOR>
+	<GIVEN>Email Received</GIVEN>
+	<TABLE>0.4 0.6 0.15 0.85</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Maintenance</FOR>
+	<TABLE>0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Firewall</FOR>
+	<GIVEN>Maintenance</GIVEN>
+	<TABLE>0.95 0.05 1.0 0.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Out of Date</FOR>
+	<GIVEN>Maintenance</GIVEN>
+	<TABLE>0.02 0.98 0.02 0.98</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Holiday</FOR>
+	<TABLE>0.277 0.723</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Alert</FOR>
+	<GIVEN>Phishing Attack</GIVEN>
+	<GIVEN>DDoS</GIVEN>
+	<TABLE>0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>DDoS</FOR>
+	<GIVEN>Holiday</GIVEN>
+	<TABLE>0.4 0.6 0.1 0.9</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>
